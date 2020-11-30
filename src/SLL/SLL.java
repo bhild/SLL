@@ -39,4 +39,22 @@ public class SLL {
 			System.err.println("no such node");
 		}
 	}
+	public void addNode(Object data) {
+		Node temp = new Node(data);
+		n.setNode(temp);
+	}
+	public void printList() {
+		Node n = this.n;
+		boolean a = true;
+		boolean b = false;
+		while(a) {
+			System.out.println(n.getData());
+			n = n.nextNode();
+			if (b) {
+				a = false;
+			}else {
+				b = n.nextNode()==null;
+			}
+		}
+	}
 }
