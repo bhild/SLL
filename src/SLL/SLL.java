@@ -28,6 +28,9 @@ public class SLL {
 			return link;
 		}
 	}
+	public boolean hasNext(Node n) {
+		return n.nextNode()!=null;
+	}
 	public void setNodeData(int nodeDepth,Object input) {
 		Node n = this.n;
 		try {
@@ -43,11 +46,27 @@ public class SLL {
 		Node temp = new Node(data);
 		n.setNode(temp);
 	}
+	public int size() {
+		Node n = this.n;
+		boolean a = true;
+		boolean b = false;
+		int returnVal = 0;
+		while(hasNext(n)) {
+			returnVal++;
+			n = n.nextNode();
+			if (b) {
+				a = false;
+			}else {
+				b = n.nextNode()==null;
+			}
+		}
+		return returnVal;
+	}
 	public void printList() {
 		Node n = this.n;
 		boolean a = true;
 		boolean b = false;
-		while(a) {
+		while(hasNext(n)) {
 			System.out.println(n.getData());
 			n = n.nextNode();
 			if (b) {
