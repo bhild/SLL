@@ -1,11 +1,11 @@
 package SLL;
 
 public class SLL {
-	public static void main(String[] args) {
-		Node n= new Node(10);
-		System.out.println(n.getData());
+	private Node n;
+	public SLL() {
+		n=new Node(null);
 	}
-	private static class Node {
+	private class Node {
 		private Object data;
 		private Node link = null;//instance of a self refrancing class
 		public Node(Object data) {
@@ -26,6 +26,17 @@ public class SLL {
 		}
 		public Node nextNode() {
 			return link;
+		}
+	}
+	public void setNodeData(int nodeDepth,Object input) {
+		Node n = this.n;
+		try {
+			for (int i = 0; i < nodeDepth; i++) {
+				n = n.nextNode();
+			}
+			n.setData(input);
+		} catch (Exception e) {
+			System.err.println("no such node");
 		}
 	}
 }
